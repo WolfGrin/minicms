@@ -10,7 +10,7 @@ header("Content-Type: text/html; charset=utf-8");
 require_once("config.php");
 require_once("classes/ACore.php");
 //проверяем есть ли в массиве GET, переменная option
-if($_GET['option']) {
+if(!empty($_GET['option'])) {
     $class = trim(strip_tags($_GET['option']));
 }
 //если нет, по умолчанию переходим на главную страницу
