@@ -5,6 +5,8 @@
  * Date: 27.03.2017
  * Time: 22:24
  */
+//открываем сессию
+session_start();
 header("Content-Type: text/html; charset=utf-8");
 
 require_once("config.php");

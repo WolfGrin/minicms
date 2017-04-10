@@ -25,7 +25,7 @@ abstract class ACore_Admin
                 </div>';
 
         echo "<div class='quick-links'>
-                » <a href='?option=edit_statti'>Статиьи</a>
+                » <a href='?option=admin'>Статиьи</a>
                 </div>";
 
         echo "<div class='quick-links'>
@@ -90,14 +90,17 @@ abstract class ACore_Admin
     }
     //метод отображения основных модулей страницы
     public function get_body() {
+        //если пришли данные $_POST, обрабатываем данные
+        if($_POST) {
+            $this->obr();
+        }
+
         $this->get_header();
         $this->get_left_bar();
-
         //блок меню
         echo '<div id="mainarea">
 			    <div class="heading">';
         echo '</div>'; //закрывает <div id="mainarea">
-
         $this->get_content();
         $this->get_footer();
     }
