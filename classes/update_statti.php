@@ -18,10 +18,8 @@ class update_statti extends ACore_Admin
             }
             $img_src = 'file/'.$_FILES['img_src']['name'];
         }
-        else{
-            exit("Необходимо загрузить изображение!");
-        }
 
+        $id = $_POST['id'];
         $title = $_POST['title'];
         $date = date("Y-m-d", time());
         $description = $_POST['description'];
@@ -33,21 +31,19 @@ class update_statti extends ACore_Admin
             exit("Не заполнены обязательные поля...");
         }
 
-        $query = "INSERT INTO statti (title, description, text, date, img_src, cat)
-                  VALUE ('$title', '$description', '$text', '$date', '$img_src', '$cat')";
-        $result = $this->db->query($query);
+        $query = "UPDATE statti
+                  SET title = '$title', img_src = '$img_src', date = '$date', text = '$text', description = '$description', cat = '$cat'
+                  WHERE id = '$id'";
 
-        if(!$result) {
+
+        if(!$this->db->query($query)) {
             exit("Не удалось обрабботать запрос - " . $this->db->error);
         }
         else {
             //записываем в переменную 'res' текущей сессии сообщение (для использования необходимо открыть сессию)
             $_SESSION['res'] = "Изменения успешно сохранены";
             //перенаправление на страницу
-            //если раскоментировать, страница обновляется сначала самой формой "submit",
-            //выводиться сообщение $_SESSION['res'], а затем срабатывает перенаправление
-            //и сообщение стрирается....
-            //header("Location:?option=add_statti");
+            header("Location:?option=admin");
         }
     }
 
@@ -83,7 +79,7 @@ class update_statti extends ACore_Admin
         <input type='hidden' name='id' value='$text[id]'>
     </p>
     <p>Изображение: <br />
-        <input type='file' name='img_src'>
+        <input type='file' name='img_src'><br />
         Загружен: $text[img_src];
     </p>
     <p>Краткое описание: <br />

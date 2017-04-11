@@ -17,6 +17,13 @@ class admin extends ACore_Admin
         echo "<div id='main'>";
         echo "<h3><a href='?option=add_statti' style='color: #510000;'>Добавить новую статью</a></h3><hr />";
 
+        //если перенаправленны с другой страницы и сессия содержит информацию
+        if($_SESSION['res']) {
+            echo $_SESSION['res'];
+            //удаляем переменную 'res' из сессии
+            unset($_SESSION['res']);
+        }
+
         if(!$result) {
             exit("Не удалось обрабботать запрос - " . $this->db->error);
         }
