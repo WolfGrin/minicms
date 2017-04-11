@@ -123,4 +123,15 @@ abstract class ACore_Admin
         return $row;
     }
 
+    protected function get_text_statti($id) {
+        $query = "SELECT title, description, text, img_src, cat FROM statti WHERE id = $id";
+        $result = $this->db->query($query);
+
+        if(!$result) {
+            exit($this->db->error);
+        }
+
+        return $result->fetch_assoc();
+    }
+
 }
