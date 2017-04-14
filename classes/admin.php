@@ -33,7 +33,7 @@ class admin extends ACore_Admin
                 $row = $result->fetch_assoc();
                 printf("<p style='font-size: 14px;'>
                         <a href='?option=update_statti&id_text=%s' style='color: #585858;'>%s</a> |
-                        <a href='?option=delete_statti&id_text=%s' style='color: red;'>Удалить</a>
+                        <a href='?option=delete_statti&del=%s' style='color: red;'>Удалить</a>
                         </p>", $row['id'], $row['title'], $row['id']);
             }
         }

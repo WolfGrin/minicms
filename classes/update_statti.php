@@ -76,7 +76,7 @@ class update_statti extends ACore_Admin
 <form enctype='multipart/form-data' action='' method='POST'>
     <p>Заголовок статьи: <br />
         <input type='text' name='title' style='width: 420px;' value='$text[title]'>
-        <input type='hidden' name='id' value='$text[id]'>
+        <input type='hidden' name='id' value='$id_text'>
     </p>
     <p>Изображение: <br />
         <input type='file' name='img_src'><br />

@@ -91,7 +91,7 @@ abstract class ACore_Admin
     //метод отображения основных модулей страницы
     public function get_body() {
         //если пришли данные $_POST, обрабатываем данные
-        if($_POST) {
+        if($_POST || $_GET['del']) {
             $this->obr();
         }
 
