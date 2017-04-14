@@ -134,4 +134,15 @@ abstract class ACore_Admin
         return $result->fetch_assoc();
     }
 
+    protected function get_text_menu($id) {
+        $query = "SELECT name_menu, text_menu FROM menu WHERE id = $id";
+        $result = $this->db->query($query);
+
+        if(!$result) {
+            exit($this->db->error);
+        }
+
+        return $result->fetch_assoc();
+    }
+
 }
