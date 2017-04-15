@@ -113,6 +113,11 @@ abstract class ACore
     }
     //метод отображения основных модулей страницы
     public function get_body() {
+        //если пришли данные $_POST, обрабатываем данные
+        if($_POST) {
+            $this->obr();
+        }
+
         $this->get_header();
         $this->get_left_bar();
         $this->get_menu();

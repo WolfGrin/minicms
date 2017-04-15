@@ -69,6 +69,13 @@ abstract class ACore_Admin
 
     //при создании объекта инициируем подключение к БД
     public function __construct() {
+        //проверка авторизации
+        if(!$_SESSION['user']) {
+            //перенаправляем на страницу входа
+            header("Location:?option=login");
+            exit();
+        }
+
         //подключаемся к БД
         $this->db = mysqli_connect(HOST, USER, PASSWORD);
         //проверка на подключение
