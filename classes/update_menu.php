@@ -33,6 +33,7 @@ class update_menu extends ACore_Admin
             $_SESSION['res'] = "Изменения успешно сохранены";
             //перенаправление на страницу
             header("Location:?option=edit_menu");
+            exit();
         }
     }
 

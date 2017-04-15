@@ -44,6 +44,7 @@ class update_statti extends ACore_Admin
             $_SESSION['res'] = "Изменения успешно сохранены";
             //перенаправление на страницу
             header("Location:?option=admin");
+            exit();
         }
     }
 
